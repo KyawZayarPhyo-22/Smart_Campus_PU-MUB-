@@ -1,0 +1,233 @@
+@* @page "/admin/dashboard" *@
+@* @layout AdminLayout *@
+
+
+
+
+<!-- SIDEBAR -->
+<!-- <nav class="sidebar" id="sidebar">
+            <div class="brand-box">
+                <i class="bi bi-cpu fs-3 me-2 text-info"></i>
+                <span class="fs-5 brand-text" style="margin-right: 20px;">P.U. MAUBIN</span>
+                <button class="btn btn-sm btn-outline-secondary" onclick="toggleSidebar()"><i
+                        class="bi bi-list"></i></button>
+
+            </div>
+
+            <div class="nav flex-column nav-pills mt-3" id="v-pills-tab" role="tablist">
+                <small class="text-uppercase text-muted fw-bold mb-2 d-block ps-4" style="font-size: 0.7rem;">Main
+                    Menu</small>
+
+                <button class="nav-link active" id="v-pills-dashboard-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-dashboard" type="button">
+                    <i class="bi bi-radar me-3"></i> Command Center
+                </button>
+                <button class="nav-link" id="v-pills-student-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-student" type="button">
+                    <i class="bi bi-people me-3"></i> Student Databank
+                </button>
+                <button class="nav-link" id="v-pills-tutor-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tutor"
+                    type="button">
+                    <i class="bi bi-person-workspace me-3"></i> Tutor Directory
+                </button>
+                <button class="nav-link" id="v-pills-library-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-library" type="button">
+                    <i class="bi bi-book me-3"></i> Library System
+                </button>
+
+                <small class="text-uppercase text-muted fw-bold mt-4 mb-2 d-block ps-4"
+                    style="font-size: 0.7rem;">Communications</small>
+
+                <button class="nav-link" id="v-pills-activity-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-activity" type="button">
+                    <i class="bi bi-calendar-event me-3"></i> Activities & Events
+                </button>
+                <button class="nav-link" id="v-pills-alert-tab" data-bs-toggle="pill" data-bs-target="#v-pills-alert"
+                    type="button">
+                    <i class="bi bi-megaphone me-3"></i> Important Alerts
+                </button>
+            </div>
+        </nav> -->
+
+<!-- MAIN PANEL -->
+<div class="main-panel">
+
+
+    <!-- CONTENT AREA (TAB CONTENT) -->
+    <div class="p-4 tab-content" id="v-pills-tabContent">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div> <!-- END TAB CONTENT -->
+</div>
+
+
+<!-- ========================================================================= -->
+<!-- MODALS (Popups for Create, Edit, Delete)                                  -->
+<!-- ========================================================================= -->
+
+<!-- DELETE CONFIRMATION MODAL -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content border-danger">
+            <div class="modal-body text-center p-4">
+                <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
+                <h5 class="fw-bold mt-3 text-white">Are you sure?</h5>
+                <p class="text-muted mb-4">ဒီအချက်အလက်ကို ဖျက်လိုက်ရင် ပြန်ယူလို့ ရမှာမဟုတ်ပါဘူး။</p>
+                <div class="d-flex justify-content-center gap-2">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger">Yes, Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- LIBRARY MODALS -->
+<div class="modal fade" id="addBookModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Upload E-Book (PDF)</h5><button type="button"
+                    class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control mb-3" placeholder="Book Title">
+                <select class="form-select mb-3">
+                    <option>Engineering</option>
+                    <option>Mathematics</option>
+                </select>
+                <div class="mb-3">
+                    <label class="form-label text-muted">Upload PDF File</label>
+                    <input class="form-control" type="file" accept=".pdf">
+                </div>
+            </div>
+            <div class="modal-footer"><button type="button" class="btn btn-primary">Upload Book</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editBookModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content border-primary">
+            <div class="modal-header border-primary">
+                <h5 class="modal-title fw-bold text-primary">Edit E-Book</h5><button type="button"
+                    class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control mb-3" value="Advanced Engineering Math">
+                <select class="form-select mb-3">
+                    <option selected>Mathematics</option>
+                    <option>Engineering</option>
+                </select>
+                <div class="mb-3">
+                    <label class="form-label text-muted">Update PDF File (Optional)</label>
+                    <input class="form-control" type="file" accept=".pdf">
+                    <small class="text-success mt-1 d-block"><i class="bi bi-check-circle"></i> Current file:
+                        math_v2.pdf</small>
+                </div>
+            </div>
+            <div class="modal-footer"><button type="button" class="btn btn-primary">Update Book</button></div>
+        </div>
+    </div>
+</div>
+
+<!-- ACTIVITY MODALS -->
+<div class="modal fade" id="addActivityModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Create Event</h5><button type="button" class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control mb-3" placeholder="Event Title">
+                <input type="date" class="form-control mb-3">
+                <input type="text" class="form-control mb-3" placeholder="Location">
+            </div>
+            <div class="modal-footer"><button type="button" class="btn btn-primary">Publish</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editActivityModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content border-primary">
+            <div class="modal-header border-primary">
+                <h5 class="modal-title fw-bold text-primary">Edit Event</h5><button type="button"
+                    class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control mb-3" value="Fresher Welcome Ceremony">
+                <input type="date" class="form-control mb-3" value="2026-12-15">
+                <input type="text" class="form-control mb-3" value="Main Assembly Hall">
+            </div>
+            <div class="modal-footer"><button type="button" class="btn btn-primary">Update Event</button></div>
+        </div>
+    </div>
+</div>
+
+<!-- ALERT MODALS -->
+<div class="modal fade" id="addAlertModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content border-danger">
+            <div class="modal-header border-danger">
+                <h5 class="modal-title fw-bold text-danger">Post Alert</h5><button type="button"
+                    class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control mb-3" placeholder="Headline">
+                <select class="form-select mb-3">
+                    <option value="high">High (Urgent)</option>
+                    <option value="medium">Medium</option>
+                </select>
+                <textarea class="form-control" rows="3" placeholder="Message details..."></textarea>
+            </div>
+            <div class="modal-footer"><button type="button" class="btn btn-danger">Post Alert</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editAlertModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content border-primary">
+            <div class="modal-header border-primary">
+                <h5 class="modal-title fw-bold text-primary">Edit Alert</h5><button type="button"
+                    class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control mb-3" value="Main Server Maintenance Tonight">
+                <select class="form-select mb-3">
+                    <option value="high" selected>High (Urgent)</option>
+                    <option value="medium">Medium</option>
+                </select>
+                <textarea class="form-control" rows="3">Server will be down from 12 AM to 4 AM.</textarea>
+            </div>
+            <div class="modal-footer"><button type="button" class="btn btn-primary">Update Alert</button></div>
+        </div>
+    </div>
+</div>
+
+<!-- Student Detail -->
+<div class="modal fade" id="studentDetailModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Student Profile</h5><button type="button" class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>NRC: 14/MaAhPa(N)123456 <br> Major: Civil Eng.</p>
+            </div>
+        </div>
+    </div>
+</div>

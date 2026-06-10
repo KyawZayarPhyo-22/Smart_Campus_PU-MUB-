@@ -1,0 +1,113 @@
+<!-- FOOTER WAVE -->
+<div class="wave-footer">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;height:60px;width:100%;">
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="var(--footer-bg)"/>
+  </svg>
+</div>
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">PU Maubin</div>
+                    <p>Polytechnic University (Maubin) — A leading institution dedicated to excellence in engineering,
+                        technology, and innovation. Empowering the engineers and technologists of tomorrow's Myanmar
+                        since 1999.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"
+                            style="border-color:rgba(255,255,255,0.1);color:var(--footer-text);"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"
+                            style="border-color:rgba(255,255,255,0.1);color:var(--footer-text);"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"
+                            style="border-color:rgba(255,255,255,0.1);color:var(--footer-text);"><i
+                                class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="social-link"
+                            style="border-color:rgba(255,255,255,0.1);color:var(--footer-text);"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>University</h4>
+                    <ul>
+                        <li><a href="#about"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> About
+                                Us</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Leadership</a></li>
+                        <li><a href="#achievements"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Achievements</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Careers</a></li>
+                        <li><a href="#virtual-tour"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Virtual Tour</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Academics</h4>
+                    <ul>
+                        <li><a href="#programs"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> B.E
+                                Programs</a></li>
+                        <li><a href="#programs"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> M.E
+                                Programs</a></li>
+                        <li><a href="#programs"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Diploma</a></li>
+                        <li><a href="#research"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Research</a></li>
+                        <li><a href="#library"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Library</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Student Services</h4>
+                    <ul>
+                        <li><a href="#admissions"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Admissions</a></li>
+                        <li><a href="#admissions"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Scholarships</a></li>
+                        <li><a href="#campus"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Campus
+                                Life</a></li>
+                        <li><a href="#events"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Events</a>
+                        </li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                                Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer-bottom">
+            <p>© 2025 Polytechnic University (Maubin). All Rights Reserved. Made with ❤️ for Myanmar Engineering
+                Education.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+<!-- FLOATING AI WIDGET -->
+<div id="ai-widget">
+    <div class="ai-widget-popup" id="aiWidgetPopup">
+        <div class="widget-header">
+            <h4>🤖 PU Maubin Assistant</h4>
+            <button class="widget-close" onclick="toggleWidget()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="widget-msgs" id="widgetMsgs">
+            <div class="widget-msg bot">Hi! 👋 How can I help you with PU Maubin today?</div>
+        </div>
+        <div class="widget-input-row">
+            <input class="widget-input" id="widgetInput" placeholder="Ask a question..."
+                onkeypress="if(event.key==='Enter')sendWidgetMsg()">
+            <button class="widget-send" onclick="sendWidgetMsg()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <button class="ai-fab" onclick="toggleWidget()"><i class="fas fa-robot"></i></button>
+</div>

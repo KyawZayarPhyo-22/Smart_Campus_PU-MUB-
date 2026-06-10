@@ -1,0 +1,59 @@
+@layout AdminLayout
+@page "/admin/events"
+<!-- 4. ACTIVITIES & EVENTS -->
+<div class="tab-pane fade show active" id="v-pills-activity">
+    <div class="mb-4">
+        <h3 class="fw-bold mb-1">Activities & Events</h3>
+    </div>
+    <div class="tech-card">
+        <!-- RESTORED: Search & Filter -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-text search-icon-bg border-end-0"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control border-start-0" placeholder="Search event name...">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option value="">All Event Types...</option>
+                    <option>Ceremony</option>
+                    <option>Seminar / Workshop</option>
+                </select>
+            </div>
+            <div class="col-md-5 text-end">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addActivityModal"><i
+                        class="bi bi-plus-lg me-2"></i> Create
+                    Event</button>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-tech align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Event Title</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dec 15, 2026</td>
+                        <td class="fw-bold">Fresher Welcome Ceremony</td>
+                        <td>Main Assembly Hall</td>
+                        <td><span class="badge bg-success">Upcoming</span></td>
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-primary me-1" data-bs-toggle="modal"
+                                data-bs-target="#editActivityModal"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                                data-bs-target="#deleteConfirmModal"><i class="bi bi-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

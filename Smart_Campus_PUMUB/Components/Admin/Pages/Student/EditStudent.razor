@@ -1,0 +1,112 @@
+@page "/admin/student/edit"
+@layout AdminLayout
+<div class="tab-pane fade show active" id="editStudentModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content tech-card">
+
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">
+                    Edit New Student
+                </h5>
+
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <!-- User -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            User Account
+                        </label>
+
+                        <select class="form-select">
+                            <option selected disabled>
+                                Select User
+                            </option>
+                            <option>Mg Mg</option>
+                            <option>Aung Aung</option>
+                            <option>Su Su</option>
+                        </select>
+                    </div>
+
+                    <!-- Roll Number -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            Roll Number
+                        </label>
+
+                        <input type="text" class="form-control" placeholder="ME-2026-001">
+                    </div>
+
+                    <!-- Class Year -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            Current Class Year
+                        </label>
+
+                        <select class="form-select">
+                            <option selected disabled>
+                                Select Year
+                            </option>
+                            <option>First Year</option>
+                            <option>Second Year</option>
+                            <option>Third Year</option>
+                            <option>Fourth Year</option>
+                        </select>
+                    </div>
+
+                    <!-- Major -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            Current Major
+                        </label>
+
+                        <select class="form-select">
+                            <option selected disabled>
+                                Select Major
+                            </option>
+                            <option>Mechanical Engineering</option>
+                            <option>Civil Engineering</option>
+                            <option>Electrical Engineering</option>
+                            <option>Information Technology</option>
+                        </select>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            Status
+                        </label>
+
+                        <select class="form-select">
+                            <option value="Active">Active</option>
+                            <option value="Suspended">Suspended</option>
+                            <option value="Graduated">Graduated</option>
+                            <option value="Leave">Leave</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <NavLink href="/admin/student" class="nav-link">
+                    <span class="sidebar-text">Cancel</span>
+                </NavLink>
+
+                <button type="button" class="btn btn-primary">
+                    <i class="bi bi-plus-circle me-2"></i>
+                    Create Student
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>

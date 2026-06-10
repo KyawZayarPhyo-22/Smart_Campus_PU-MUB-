@@ -1,0 +1,44 @@
+@page "/admin/news"
+@layout AdminLayout
+
+<h2>News Management</h2>
+
+<button class="btn btn-primary">
+    Add News
+</button>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var news in NewsList)
+        {
+            <tr>
+                <td>@news.Title</td>
+                <td>@news.CreatedDate</td>
+
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+@code
+{
+
+    List<NewsDto> NewsList = new();
+
+}

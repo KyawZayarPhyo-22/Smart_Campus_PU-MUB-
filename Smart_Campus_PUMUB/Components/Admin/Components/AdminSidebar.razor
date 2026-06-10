@@ -1,0 +1,48 @@
+<nav class="sidebar" id="sidebar">
+    <div class="brand-box d-flex align-items-center">
+        <i class="bi bi-cpu fs-3 me-2 text-info"></i>
+        <span class="fs-5 brand-text sidebar-text" style="margin-right: 20px;">P.U. MAUBIN</span>
+        <button class="btn btn-sm btn-outline-secondary" onclick="toggleSidebar()">
+            <i class="bi bi-list"></i>
+        </button>
+    </div>
+
+    <div class="nav flex-column nav-pills mt-3" id="v-pills-tab" role="tablist">
+        <small class="text-uppercase text-muted fw-bold mb-2 d-block ps-4 sidebar-text" style="font-size: 0.7rem;">Main
+            Menu</small>
+
+        <NavLink href="/admin/dashboard" class="nav-link">
+            <i class="bi bi-speedometer2 me-3"></i>
+            <span class="sidebar-text">Dashboard</span>
+        </NavLink>
+
+        <NavLink href="/admin/student" class="nav-link">
+            <i class="bi bi-people me-3"></i>
+            <span class="sidebar-text">Student Databank</span>
+        </NavLink>
+
+        <NavLink href="/admin/tutors" class="nav-link">
+            <i class="bi bi-person-workspace me-3"></i>
+            <span class="sidebar-text">Tutor Directory</span>
+        </NavLink>
+
+        <NavLink href="/admin/library" class="nav-link">
+            <i class="bi bi-book me-3"></i>
+            <span class="sidebar-text">Library System</span>
+        </NavLink>
+
+        <small class="text-uppercase text-muted fw-bold mt-4 mb-2 d-block ps-4 sidebar-text" style="font-size: 0.7rem;">
+            Communications
+        </small>
+
+        <NavLink href="/admin/events" class="nav-link">
+            <i class="bi bi-calendar-event me-3"></i>
+            <span class="sidebar-text">Activities & Events</span>
+        </NavLink>
+
+        <NavLink href="/admin/alert" class="nav-link">
+            <i class="bi bi-megaphone me-3"></i>
+            <span class="sidebar-text">Important Alerts</span>
+        </NavLink>
+    </div>
+</nav>

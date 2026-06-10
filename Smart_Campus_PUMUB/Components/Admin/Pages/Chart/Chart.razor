@@ -1,0 +1,61 @@
+@page "/admin/dashboard"
+@layout AdminLayout
+
+
+<!-- 0. COMMAND CENTER (With Charts) -->
+<div class="tab-pane fade show active" id="v-pills-dashboard">
+    <div class="mb-4">
+        <h3 class="fw-bold mb-1">Command Center</h3>
+        <p class="text-muted">System Overview, Charts, and Live Telemetry.</p>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="tech-card p-3 border-start border-info border-4">
+                <p class="text-muted mb-1">Active Students</p>
+                <h3 class="fw-bold mb-0">4,520</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="tech-card p-3 border-start border-success border-4">
+                <p class="text-muted mb-1">Total Tutors</p>
+                <h3 class="fw-bold mb-0">315</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="tech-card p-3 border-start border-warning border-4">
+                <p class="text-muted mb-1">Library PDF Files</p>
+                <h3 class="fw-bold mb-0">1,240</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="tech-card p-3 border-start border-danger border-4">
+                <p class="text-muted mb-1">Active Alerts</p>
+                <h3 class="fw-bold text-danger mb-0">2</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="row g-4 mb-4">
+        <!-- Students Chart -->
+        <div class="col-md-6">
+            <div class="tech-card h-100 p-4">
+                <h5 class="fw-bold mb-4">Students Enrollment by Major</h5>
+                <div style="height: 250px; display: flex; justify-content: center;">
+                    <canvas id="studentDoughnutChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- Library & Tutors Chart -->
+        <div class="col-md-6">
+            <div class="tech-card h-100 p-4">
+                <h5 class="fw-bold mb-4">Library Books & Tutors by Dept.</h5>
+                <div style="height: 250px;">
+                    <canvas id="libraryTutorBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
