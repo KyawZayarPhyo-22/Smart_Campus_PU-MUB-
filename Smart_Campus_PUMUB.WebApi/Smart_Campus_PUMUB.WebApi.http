@@ -1,0 +1,6 @@
+@Smart_Campus_PUMUB.WebApi_HostAddress = http://localhost:5077
+
+GET {{Smart_Campus_PUMUB.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
