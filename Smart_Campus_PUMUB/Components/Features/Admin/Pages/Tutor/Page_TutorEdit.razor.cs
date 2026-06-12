@@ -18,31 +18,37 @@ public partial class Page_TutorEdit
 
     private IBrowserFile? selectedFile;
     private bool isProcessing = false;
+    private bool IsLoading = true;
     private string statusMessage = "";
 
     protected override async Task OnInitializedAsync()
     {
-        // ၁။ Dropdown များအတွက် Data ဆွဲယူခြင်း
-        UserList = await HttpClientService.ExecuteAsync<List<UserModels>>("user", EnumHttpMethod.Get) ?? new();
-        PositionList = await HttpClientService.ExecuteAsync<List<PositionModel>>("position", EnumHttpMethod.Get) ?? new();
-        DepartmentList = await HttpClientService.ExecuteAsync<List<DepartmentModel>>("department", EnumHttpMethod.Get) ?? new();
-
-        // ၂။ Edit လုပ်မည့် Tutor အချက်အလက်များ အရင်ဆွဲယူခြင်း
-        var existingTutor = await HttpClientService.ExecuteAsync<TutorModel>($"tutor/{Id}", EnumHttpMethod.Get);
-        
-        if (existingTutor != null)
+        try
         {
-            createModel = new TutorUpdateRequestModel
+            // ၁။ Dropdown များအတွက် Data ဆွဲယူခြင်း
+            UserList = await HttpClientService.ExecuteAsync<List<UserModels>>("user", EnumHttpMethod.Get) ?? new();
+            PositionList = await HttpClientService.ExecuteAsync<List<PositionModel>>("position", EnumHttpMethod.Get) ?? new();
+            DepartmentList = await HttpClientService.ExecuteAsync<List<DepartmentModel>>("department", EnumHttpMethod.Get) ?? new();
+
+            // ၂။ Edit လုပ်မည့် Tutor အချက်အလက်များ အရင်ဆွဲယူခြင်း
+            var existingTutor = await HttpClientService.ExecuteAsync<TutorModel>($"tutor/{Id}", EnumHttpMethod.Get);
+            
+            if (existingTutor != null)
             {
-                Tutor_Name = existingTutor.Tutor_Name,
-                Email = existingTutor.Email,
-                Phone = existingTutor.Phone,
-                About = existingTutor.About,
-                DepartmentId = existingTutor.Department_Id,
-                PositionId = existingTutor.Position_Id,
-                UserId = existingTutor.User_Id
-            };
+                createModel = new TutorUpdateRequestModel
+                {
+                    Tutor_Name = existingTutor.Tutor_Name,
+                    Email = existingTutor.Email,
+                    Phone = existingTutor.Phone,
+                    About = existingTutor.About,
+                    DepartmentId = existingTutor.Department_Id,
+                    PositionId = existingTutor.Position_Id,
+                    UserId = existingTutor.User_Id
+                };
+            }
         }
+        catch (Exception ex) { statusMessage = $"Error loading data: {ex.Message}"; }
+        finally { IsLoading = false; }
     }
 
     private void HandleFileSelected(InputFileChangeEventArgs e) => selectedFile = e.File;

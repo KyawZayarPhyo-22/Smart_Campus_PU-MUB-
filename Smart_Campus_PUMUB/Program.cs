@@ -6,6 +6,16 @@ using Smart_Campus_PUMUB.Components.Features.Services;
 using Smart_Campus_PUMUB.Database.AppDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowBlazorServer", policy =>
+    {
+        policy.WithOrigins("https://localhost:7017") // 💡 ကိုကို့ရဲ့ Blazor Server Run တဲ့ Port နံပါတ်
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -27,7 +37,6 @@ builder.Services.AddScoped<HttpClientService>();
 
 // ==========================================
 
-var app = builder.Build(); // ✨ ၎င်း၏အထက်တွင် Service များ အားလုံး ရှိနေရပါမည်
 builder.Services.AddDbContext<SmartCampusDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddAuthenticationCore();
@@ -35,7 +44,7 @@ builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>
 builder.Services.AddCascadingAuthenticationState();
 
 var app = builder.Build();
-
+app.UseCors("AllowBlazorServer");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

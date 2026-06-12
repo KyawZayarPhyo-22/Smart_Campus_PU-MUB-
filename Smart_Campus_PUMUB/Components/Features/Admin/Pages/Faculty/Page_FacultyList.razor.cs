@@ -38,7 +38,11 @@ public partial class Page_FacultyList
         try
         {
             var response = await HttpClientService.ExecuteAsync<List<FacultyModel>>("faculty", EnumHttpMethod.Get);
-            if (response != null) FacultyList = response;
+            if (response != null)
+            {
+                FacultyList = response;
+
+            }
         }
         catch (Exception ex)
         {

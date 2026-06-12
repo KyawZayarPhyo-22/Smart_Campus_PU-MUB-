@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Smart_Campus_PUMUB.Database.AppDbContext;
 using Smart_Campus_PUMUB.WebApi.Models;
 
@@ -21,6 +22,7 @@ namespace Smart_Campus_PUMUB.WebApi.Controllers
         public IActionResult GetActivities()
         {
             var lst = _db.Activities
+                         .AsNoTracking()
                          .Where(x => x.IsDelete == false)
                          .OrderByDescending(x => x.ActivityId)
                          .ToList();

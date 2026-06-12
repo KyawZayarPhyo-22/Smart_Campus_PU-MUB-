@@ -26,11 +26,13 @@ public partial class Page_FacultyCreate
         }
         isProcessing = true;
         statusMessage = "သိမ်းဆည်းနေပါသည်...";
+
         try
         {
             var response = await HttpClientService.ExecuteAsync<FacultyCreateResponseModel>("faculty", EnumHttpMethod.Post, facultyModel);
             if (response != null && response.IsSuccess)
             {
+
                 await JSRuntime.InvokeVoidAsync("alert", response.Message ?? "Faculty ဖန်တီးမှု အောင်မြင်ပါသည်။");
                 NavigationManager.NavigateTo("/admin/faculties");
             }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Smart_Campus_PUMUB.Database.AppDbContext;
 using Smart_Campus_PUMUB.WebApi.Models;
 using System.IO;
@@ -21,7 +22,9 @@ public class BookController : ControllerBase
     [HttpGet]
     public IActionResult GetBooks()
     {
-        var lst = _db.Books.Where(x => x.IsDelete == false || x.IsDelete == null).ToList();
+        var lst = _db.Books
+            .AsNoTracking()
+            .Where(x => x.IsDelete == false || x.IsDelete == null).ToList();
         return Ok(lst);
     }
     [HttpGet("{id}")] // 👈 ဤ method အသစ်ကို ထည့်ပါ
